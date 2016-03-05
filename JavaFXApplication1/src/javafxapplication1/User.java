@@ -37,6 +37,7 @@ public class User {
                usertags[i][1] = ""+tagpriorities.get(key);
                i++;
         }
+        /*System.out.println("The number of tags for email: " + usertags[]);
         int j = 0;
         for(j = 0; j < i; j++){
             for(int k = 0; k < i; k++){
@@ -52,7 +53,7 @@ public class User {
                 }
             }
         }
-        
+        */
         //for(int l = 0; l < i; l++)
         
         return usertags;
