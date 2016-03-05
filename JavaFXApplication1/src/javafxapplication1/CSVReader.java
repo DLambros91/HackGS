@@ -19,6 +19,7 @@ public class CSVReader {
     BufferedReader br = null;
     String line = "";
     String csvSplitBy = ",";
+    String[][] EmailAndTag;
     
     public CSVReader(){
         //NULL Constructor
@@ -32,12 +33,16 @@ public class CSVReader {
             numEntries++;
         }
         String[][] Data = new String[numEntries][5];
+        EmailAndTag = new String[numEntries][2];
         br.close();
         br = new BufferedReader(new FileReader(pathToFile));
         int i = 0;
         while( (line = br.readLine()) != null){
             Data[i] = line.split(csvSplitBy);
-            System.out.println(Data[i][0] + " " + Data[i][1] + " " + Data[i][2] + " " + Data[i][3] + " " + Data[i][4] + " "  );
+            //System.out.println(Data[i][0] + " " + Data[i][1] + " " + Data[i][2] + " " + Data[i][3] + " " + Data[i][4] + " "  );
+            EmailAndTag[i][0] = Data[i][0];
+            EmailAndTag[i][1] = Data[i][4];
+            System.out.println("Email: " + EmailAndTag[i][0] + " Tags: " + EmailAndTag[i][1]);
             i++;
         }
         br.close();
@@ -53,4 +58,8 @@ public class CSVReader {
       }
       
     }
+    
+     public String[][] getEmailAndTags(){
+          return EmailAndTag;
+      }
 }

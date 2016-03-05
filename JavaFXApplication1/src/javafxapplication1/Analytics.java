@@ -12,14 +12,12 @@ package javafxapplication1;
 public class Analytics {
 
     public User usr;
-    String[] tags;
     
-    public Analytics(User U, String[] tgs){
+    public Analytics(User U){
         usr = U;
-        tags = tgs;
     }
     
-    public int analyze(){
+    public int analyze(String[] tags){
         int priority = 0;
         String[][] utags = usr.getTags();
         int size = tags.length;
@@ -31,6 +29,17 @@ public class Analytics {
             }
         }
         return (priority%11);
+    }
+    
+    public String[][] EmailPriorities(){
+        String[][] ET = usr.EmailAndTags; //Users Email Descriptions and Tags (unparsed)
+        String[][] result = new String[ET.length][2];
+        for(int i = 0; i < ET.length; i++){
+            String[] emailtags = ET[i][0].split(" "); //Parsed Tags
+            result[i][0] = ET[i][0];
+            result[i][1] = ""+analyze(emailtags);
+        }
+        return result;
     }
     
 }

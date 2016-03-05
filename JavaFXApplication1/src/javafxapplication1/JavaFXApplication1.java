@@ -23,6 +23,20 @@ public class JavaFXApplication1 extends Application {
     public void start(Stage primaryStage) {
         CSVReader temp = new CSVReader();
         temp.read();
+        String[][] EandT = temp.EmailAndTag;
+        User U = new User("Harsh Shah", EandT);
+        U.addTag("tag1", 1);
+        U.addTag("tag2", 2);
+        U.addTag("tag3", 3);
+        U.addTag("tag4", 4);
+        U.addTag("tag5", 5);
+        U.addTag("tag6", 6);
+        U.addTag("tag7", 7);
+        U.addTag("tag8", 8);
+        U.addTag("tag9", 9);
+        U.addTag("tag10", 10);
+        Analytics A = new Analytics(U);
+        String[][] result = A.EmailPriorities();
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
