@@ -21,6 +21,16 @@ public class User {
         Name = n;
         tagpriorities = new HashMap(100);
         EmailAndTags = EandT;
+        this.addTag("tag1", 1);
+        this.addTag("tag2", 2);
+        this.addTag("tag3", 3);
+        this.addTag("tag4", 4);
+        this.addTag("tag5", 5);
+        this.addTag("tag6", 6);
+        this.addTag("tag7", 7);
+        this.addTag("tag8", 8);
+        this.addTag("tag9", 9);
+        this.addTag("tag10", 10);
     }
     
     public void addTag(String key, int val){
